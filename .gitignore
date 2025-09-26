@@ -1,0 +1,23 @@
+node_modules/
+/.next/
+/out/
+/build
+
+# Misc
+.DS_Store
+*.pem
+
+.env
+
+# Vercel
+.vercel
+.npm
+
+
+# VS Code
+.vscode/
+
+# Build artifacts
+dist/
+build/
+
