@@ -28,10 +28,10 @@ export const Contact = () => (
             <div>
               <p className="text-sm text-gray-600 font-medium mb-1">Contact us</p>
               <a 
-                href="mailto:support@hallatech.com" 
+                href="mailto:support@hallatechnologies.com" 
                 className="text-lg font-semibold text-gray-900 hover:text-indigo-600 transition-colors duration-200 group"
               >
-                support@hallatech.com
+                support@hallatechnologies.com
                 <span className="block w-0 group-hover:w-full h-0.5 bg-indigo-600 transition-all duration-300"></span>
               </a>
             </div>
@@ -68,7 +68,7 @@ export const Contact = () => (
             className="w-full lg:w-auto lg:pl-4"
           >
             <motion.a
-              href="mailto:support@hallatech.com"
+              href="mailto:support@hallatechnologies.com"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200"

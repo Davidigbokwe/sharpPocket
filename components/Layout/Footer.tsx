@@ -14,7 +14,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-center md:text-left">
             <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-            <a href="mailto:support@hallatech.com" className="text-gray-400 hover:text-white transition-colors">support@hallatech.com</a>
+            <a href="mailto:support@hallatechnologies.com" className="text-gray-400 hover:text-white transition-colors">support@hallatechnologies.com</a>
           </div>
         </div>
       </div>
