@@ -8,6 +8,11 @@ export const Merchant = () => {
 				<p className="text-lg text-gray-600 max-w-2xl mx-auto">
 					Accept payments, manage transactions, and grow your business with Sharp Pocket's merchant tools.
 				</p>
+				<div className="mt-6">
+					<a href="/merchants" className="inline-flex items-center gap-3 px-5 py-2.5 rounded-xl bg-black text-white shadow-md hover:shadow-lg transition-all">
+						<span className="font-medium">Explore Merchant Setup</span>
+					</a>
+				</div>
 			</div>
 		</section>
 	);

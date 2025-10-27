@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '../UI/Button';
 import { MdEmail } from 'react-icons/md';
-import { FaApple, FaAndroid } from 'react-icons/fa';
+import { FaApple, FaGooglePlay } from 'react-icons/fa';
 
 export const Hero = () => {
   return (
@@ -31,26 +31,21 @@ export const Hero = () => {
                 href="https://apps.apple.com/ng/app/sharp-pocket/id6748454121"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors font-medium"
+                className="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-black text-white shadow-md hover:shadow-lg transition-all"
               >
                 <FaApple className="text-xl" />
-                <span>iOS</span>
+                <span className="font-medium">App Store</span>
               </a>
               <a
                 href="https://play.google.com/store/apps/details?id=com.caribou97499.sharppocket&hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-4 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors font-medium"
+                className="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-black text-white shadow-md hover:shadow-lg transition-all"
               >
-                <FaAndroid className="text-xl" />
-                <span>Android</span>
+                <FaGooglePlay className="text-xl" />
+                <span className="font-medium">Play Store</span>
               </a>
             </div>
-                <a href="#contact">
-                  <Button>
-                    Contact
-                  </Button>
-                </a>
           </motion.div>
           
           <PhoneMockup />
