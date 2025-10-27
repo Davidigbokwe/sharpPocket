@@ -2,9 +2,92 @@ import Head from 'next/head';
 import { Header } from '@/components/Layout/Header';
 import { Footer } from '@/components/Layout/Footer';
 import { MERCHANT_STEPS } from '@/constants/data';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaApple, FaGooglePlay, FaArrowRight, FaDownload } from 'react-icons/fa';
+import { FaApple, FaGooglePlay, FaArrowRight, FaMobileAlt } from 'react-icons/fa';
 import Image from 'next/image';
+
+function MobileSignupControls() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', handler);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, []);
+
+  return (
+    <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 items-center">
+      <div ref={ref} className="relative">
+        <motion.button
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          onClick={() => setOpen(o => !o)}
+          aria-haspopup="true"
+          aria-expanded={open}
+          className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-gray-900 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <FaMobileAlt className="text-2xl" />
+          <span className="font-semibold">Sign up on mobile</span>
+        </motion.button>
+
+        {open && (
+          <div role="menu" aria-label="Sign up on mobile options" className="absolute left-0 mt-2 w-64 bg-white text-gray-900 rounded-lg border shadow-lg z-50">
+            <a
+              role="menuitem"
+              href="https://apps.apple.com/ng/app/sharp-pocket/id6748454121"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Sign up on iOS (App Store)"
+              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100"
+              onClick={() => setOpen(false)}
+            >
+              <FaApple className="text-lg" />
+              <span>iOS (App Store)</span>
+            </a>
+            <a
+              role="menuitem"
+              href="https://play.google.com/store/apps/details?id=com.caribou97499.sharppocket&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Sign up on Android (Play Store)"
+              className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100"
+              onClick={() => setOpen(false)}
+            >
+              <FaGooglePlay className="text-lg" />
+              <span>Android (Play Store)</span>
+            </a>
+          </div>
+        )}
+      </div>
+
+      <motion.a
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        href="https://mysharppocket.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Sign up on web"
+        className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white text-gray-900 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
+      >
+        <span className="font-semibold">Sign up on web</span>
+        <FaArrowRight className="text-sm" />
+      </motion.a>
+    </div>
+  );
+}
 
 export default function MerchantsPage() {
   return (
@@ -32,32 +115,7 @@ export default function MerchantsPage() {
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                   Get set up in minutes. Generate a QR, display it, and receive payments straight to your bank.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href="https://apps.apple.com/ng/app/sharp-pocket/id6748454121"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gray-900 text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
-                  >
-                    <FaApple className="text-2xl" />
-                    <span className="font-semibold">App Store</span>
-                    <FaArrowRight className="text-sm opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all" />
-                  </motion.a>
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href="https://play.google.com/store/apps/details?id=com.caribou97499.sharppocket&hl=en"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gray-900 text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
-                  >
-                    <FaGooglePlay className="text-2xl" />
-                    <span className="font-semibold">Play Store</span>
-                    <FaArrowRight className="text-sm opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all" />
-                  </motion.a>
-                </div>
+                <MobileSignupControls />
               </div>
             </motion.div>
 
@@ -122,23 +180,7 @@ export default function MerchantsPage() {
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Your QR Code is Ready</h2>
                     <p className="text-gray-600 mb-2 text-lg">Scan & Pay</p>
                     <p className="text-gray-500 mb-8 max-w-md">Display your unique QR code and start accepting payments instantly.</p>
-                    <div className="flex flex-wrap gap-4">
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-3 px-6 py-3.5 rounded-xl bg-gray-900 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                      >
-                        <FaDownload className="text-lg" />
-                        <span className="font-semibold">Download QR</span>
-                      </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-6 py-3.5 rounded-xl bg-white text-gray-900 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 font-semibold"
-                      >
-                        Share Code
-                      </motion.button>
-                    </div>
+                    <MobileSignupControls />
                   </div>
                   <div className="flex justify-center lg:justify-end">
                     <motion.div
