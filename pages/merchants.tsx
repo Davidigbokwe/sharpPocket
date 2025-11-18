@@ -47,7 +47,7 @@ function MobileSignupControls() {
           <div role="menu" aria-label="Sign up on mobile options" className="absolute left-0 mt-2 w-64 bg-white text-gray-900 rounded-lg border shadow-lg z-50">
             <a
               role="menuitem"
-              href="https://apps.apple.com/ng/app/sharp-pocket/id6748454121"
+              href="https://apps.apple.com/us/app/sharppocket-merchant/id6755307171"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Sign up on iOS (App Store)"
@@ -59,7 +59,7 @@ function MobileSignupControls() {
             </a>
             <a
               role="menuitem"
-              href="https://play.google.com/store/apps/details?id=com.caribou97499.sharppocket&hl=en"
+              href="https://play.google.com/store/apps/details?id=com.tunenova.sharppocketmerchant"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Sign up on Android (Play Store)"
