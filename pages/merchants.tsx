@@ -76,7 +76,7 @@ function MobileSignupControls() {
       <motion.a
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        href="https://mysharppocket.com/"
+        href="https://sharp-pocket-phi.vercel.app/login"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Sign up on web"
